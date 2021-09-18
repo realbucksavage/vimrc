@@ -1,0 +1,40 @@
+#!/bin/bash
+
+JDTLS_BASE="${JDTLS_BASE:-$HOME/tools}"
+JDTLS_REPO="eclipse.jdt.ls"
+
+if [ ! -d $JDTLS_BASE ] ; then
+    echo "'$JDTLS_BASE' doesn't exists, creating..."
+    mkdir -p $JDTLS_BASE
+fi
+
+JDTLS_INSTALL_DIR=$JDTLS_BASE/$JDTLS_REPO
+if [ ! -d "$JDTLS_INSTALL_DIR" ] ; then
+    echo "$JDTLS_INSTALL_DIR"
+    git clone https://github.com/eclipse/$JDTLS_REPO $JDTLS_BASE/$JDTLS_REPO
+fi
+
+JDTLS_PRODUCT="$JDTLS_INSTALL_DIR/org.eclipse.jdt.ls.product"
+if [ ! -d "$JDTLS_PRODUCT/target" ]; then
+    echo "compiling jdtls..."
+    echo "mvn -f '$JDTLS_INSTALL_DIR/pom.xml' clean install -DskipTests"
+    mvn -f "$JDTLS_INSTALL_DIR/pom.xml" clean install -DskipTests
+fi
+
+JAR="$JDTLS_PRODUCT/target/repository/plugins/org.eclipse.equinox.launcher_*.jar"
+echo ">> STARTING LANGUAGE SERVER $JAR"
+
+java \
+  -Declipse.application=org.eclipse.jdt.ls.core.id1 \
+  -Dosgi.bundles.defaultStartLevel=4 \
+  -Declipse.product=org.eclipse.jdt.ls.core.product \
+  -Dlog.protocol=true \
+  -Dlog.level=ALL \
+  -Xms1g \
+  -Xmx2G \
+  -jar $(echo "$JAR") \
+  -configuration "$JDTLS_PRODUCT/target/repository/config_linux" \
+  -data "${1:-$HOME/.jdtls-workspaces}" \
+  --add-modules=ALL-SYSTEM \
+  --add-opens java.base/java.util=ALL-UNNAMED \
+  --add-opens java.base/java.lang=ALL-UNNAMED
