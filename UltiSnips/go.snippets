@@ -1,9 +1,0 @@
-snippet "(\S.*)\.nn" "!= nil" br
-if `!p snip.rv = match.group(1)` != nil {
-	${1}
-}
-endsnippet
-
-snippet "(\S.*)\.append" "append to array" br
-`!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, ${1})
-endsnippet
