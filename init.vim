@@ -46,12 +46,16 @@ filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-Plug 'rakr/vim-one'
-Plug 'airblade/vim-gitgutter'
+Plug 'marko-cerovac/material.nvim'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'nvim-lualine/lualine.nvim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
+
+Plug 'lewis6991/gitsigns.nvim'
 
 function! FoldRegion(expr)
     let lnr = search(a:expr, 'wn')
@@ -118,6 +122,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'theHamsta/nvim-dap-virtual-text'
 nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
 nnoremap <silent> <F8> <Cmd>lua require'dap'.step_over()<CR>
 nnoremap <silent> <F7> <Cmd>lua require'dap'.step_into()<CR>
@@ -185,8 +192,10 @@ call plug#end()
 
 set background=dark
 set termguicolors
-" colorscheme gruvbox-material
-colorscheme one
+lua <<EOF
+-- colorscheme material
+require 'plugins.colorscheme'
+EOF
 
 set nosplitright
 

@@ -26,7 +26,7 @@ require'nvim-tree'.setup {
             restrict_above_cwd = true,
         },
         open_file = {
-            resize_window = false,
+            resize_window = true,
             quit_on_open = false,
         }
     }

@@ -26,10 +26,10 @@ local on_attach = function(client, bufnr)
     }, bufnr)
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require'lspconfig'
 
-local servers = { 'gopls', 'rust_analyzer', 'pyright' }
+local servers = { 'gopls', 'rust_analyzer', 'pyright', 'tsserver', 'dockerls' }
 for _, lsp in pairs(servers) do
     lspconfig[lsp].setup {
         on_attach = on_attach,
@@ -44,11 +44,14 @@ local jdtls_config = {
         '-data', '/home/jay/nvim_java_workspaces'
     },
     settings = { java = {} },
-    init_options = { bundles = {} },
+    init_options = { bundles = {
+        '/home/jay/tools/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.37.0.jar'
+    } },
     on_attach = function(client, bufnr)
         on_attach(client, bufnr)
         require'jdtls'.setup_dap({ hotcodereplace = 'auto' })
     end,
     capabilites = capabilites,
 }
+
 lspconfig.jdtls.setup(jdtls_config)
