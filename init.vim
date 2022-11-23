@@ -46,7 +46,9 @@ filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
+Plug 'ghifarit53/tokyonight-vim'
 Plug 'rakr/vim-one'
+
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -118,8 +120,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
+Plug 'SirVer/ultisnips'
 Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'mfussenegger/nvim-dap'
@@ -187,6 +188,8 @@ vnoremap < <gv
 nnoremap < 10<C-w><
 nnoremap > 10<C-w>>
 
+nnoremap <CR> :noh<CR><CR>
+
 Plug 'Yggdroot/indentLine'
 
 call plug#end()
@@ -194,8 +197,11 @@ call plug#end()
 set background=dark
 set termguicolors
 
-let g:one_allow_italics = 1
-colorscheme one
+" let g:one_allow_italics = 1
+" colorscheme one
+let g:tokyonight_style = 'storm'
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 set nosplitright
 

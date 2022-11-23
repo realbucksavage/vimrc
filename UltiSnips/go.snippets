@@ -1,0 +1,29 @@
+snippet pkgm "main function" b
+package main
+
+func main() {
+	${1}
+}
+endsnippet
+
+snippet "(\S.*)\.len" "Length of" br
+len(`!p snip.rv = match.group(1)`)${1}
+endsnippet
+
+snippet "(.*\S);\s?(\w+).if" "expand if on the same line" br
+if `!p snip.rv = match.group(1)`; `!p snip.rv = match.group(2)` {
+	${1}
+}
+endsnippet
+
+snippet "(\w+)\.nn" "something is not nil" br
+if `!p snip.rv = match.group(1)` != nil {
+	${1}
+}
+endsnippet
+
+snippet "(.*\S);\s?(\w+).nn" "something is not nil on the same line" br
+if `!p snip.rv = match.group(1)`; `!p snip.rv = match.group(2)` != nil {
+	${1}
+}
+endsnippet
