@@ -16,3 +16,9 @@ dap.listeners.after.event_exited['dapui_config'] = function()
 end
 
 vim.api.nvim_set_keymap('v', '<leader>ev', 'require("dapui").eval()<CR>', { noremap = true, silent = true })
+
+require'dap-go'.setup()
+if vim.fn.filereadable('.vimworkspace/dap_go.lua') ~= 0 then
+    package.path = package.path .. ';./.vimworkspace/?.lua'
+    require'dap_go'.setup(dap.configurations.go)
+end
