@@ -46,7 +46,7 @@ filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-Plug 'marko-cerovac/material.nvim'
+Plug 'rakr/vim-one'
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -56,6 +56,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'leoluz/nvim-dap-go'
 
 function! FoldRegion(expr)
     let lnr = search(a:expr, 'wn')
@@ -192,10 +193,9 @@ call plug#end()
 
 set background=dark
 set termguicolors
-lua <<EOF
--- colorscheme material
-require 'plugins.colorscheme'
-EOF
+
+let g:one_allow_italics = 1
+colorscheme one
 
 set nosplitright
 
