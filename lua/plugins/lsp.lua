@@ -43,7 +43,11 @@ local jdtls_config = {
         '-configuration', '/home/jay/.cache/jdtls',
         '-data', '/home/jay/nvim_java_workspaces'
     },
-    settings = { java = {} },
+    settings = { 
+        java = {
+            signatureHelp = { enabled = true }
+        },
+    },
     init_options = { bundles = {
         '/home/jay/tools/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.37.0.jar'
     } },
