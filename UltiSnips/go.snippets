@@ -16,6 +16,13 @@ if `!p snip.rv = match.group(1)`; `!p snip.rv = match.group(2)` {
 }
 endsnippet
 
+snippet "(\S.*).if" "expand if" br
+if `!p snip.rv = match.group(1)` {
+	${1}
+}
+endsnippet
+
+
 snippet "(\w+)\.nn" "something is not nil" br
 if `!p snip.rv = match.group(1)` != nil {
 	${1}
