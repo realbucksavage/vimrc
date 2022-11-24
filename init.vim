@@ -56,6 +56,8 @@ Plug 'nvim-lualine/lualine.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'leoluz/nvim-dap-go'
@@ -122,6 +124,9 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'SirVer/ultisnips'
 Plug 'ray-x/lsp_signature.nvim'
+
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
 
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'

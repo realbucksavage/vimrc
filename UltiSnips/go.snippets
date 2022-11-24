@@ -22,7 +22,6 @@ if `!p snip.rv = match.group(1)` {
 }
 endsnippet
 
-
 snippet "(\w+)\.nn" "something is not nil" br
 if `!p snip.rv = match.group(1)` != nil {
 	${1}
@@ -32,5 +31,11 @@ endsnippet
 snippet "(.*\S);\s?(\w+).nn" "something is not nil on the same line" br
 if `!p snip.rv = match.group(1)`; `!p snip.rv = match.group(2)` != nil {
 	${1}
+}
+endsnippet
+
+snippet "(\w+)\.forr" "range of" br
+for ${1:_}, ${2:value} := range `!p snip.rv = match.group(1)` {
+	${3}
 }
 endsnippet

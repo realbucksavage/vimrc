@@ -19,6 +19,8 @@ require'trouble'.setup {
 require'gitsigns'.setup()
 -- end one liner setups
 
+require'plugins.treesitter'
+require'plugins.telescope'
 require'plugins.nvim_tree'
 require'plugins.lualine'
 require'plugins.bufferline'
