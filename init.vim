@@ -48,18 +48,18 @@ call plug#begin('~/.local/share/nvim/site/plugged')
 
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'nvim-lualine/lualine.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
+Plug 'feline-nvim/feline.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-ui-select.nvim'
 
-Plug 'lewis6991/gitsigns.nvim'
 Plug 'leoluz/nvim-dap-go'
 
 function! FoldRegion(expr)
@@ -196,6 +196,12 @@ nnoremap > 10<C-w>>
 nnoremap <CR> :noh<CR><CR>
 
 Plug 'Yggdroot/indentLine'
+let g:indentLine_setConceal = 0
+
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'tpope/vim-fugitive'
+nnoremap <silent> <leader>gg :Git<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
 
 call plug#end()
 
@@ -204,9 +210,11 @@ set termguicolors
 
 " let g:one_allow_italics = 1
 " colorscheme one
-let g:tokyonight_style = 'storm'
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+" let g:tokyonight_style = 'storm'
+" let g:tokyonight_enable_italic = 1
+" colorscheme tokyonight
+
+colorscheme nord
 
 set nosplitright
 

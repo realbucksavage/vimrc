@@ -22,7 +22,7 @@ require'gitsigns'.setup()
 require'plugins.treesitter'
 require'plugins.telescope'
 require'plugins.nvim_tree'
-require'plugins.lualine'
+require'plugins.feline'
 require'plugins.bufferline'
 require'plugins.cmp'
 require'plugins.lsp'
