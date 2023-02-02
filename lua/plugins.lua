@@ -21,6 +21,7 @@ require'gitsigns'.setup()
 
 require'plugins.treesitter'
 require'plugins.telescope'
+require'plugins.colorscheme'
 require'plugins.nvim_tree'
 require'plugins.feline'
 require'plugins.bufferline'

@@ -46,14 +46,11 @@ filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/site/plugged')
 
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'rakr/vim-one'
-Plug 'arcticicestudio/nord-vim'
+Plug 'EdenEast/nightfox.nvim' 
+Plug 'feline-nvim/feline.nvim'
 
 Plug 'chr4/nginx.vim'
 Plug 'tpope/vim-surround'
-" Plug 'nvim-lualine/lualine.nvim'
-Plug 'feline-nvim/feline.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
@@ -193,7 +190,7 @@ vnoremap < <gv
 nnoremap < 10<C-w><
 nnoremap > 10<C-w>>
 
-nnoremap <CR> :noh<CR><CR>
+nnoremap <silent> <CR> :noh<CR><CR>
 
 Plug 'Yggdroot/indentLine'
 let g:indentLine_setConceal = 0
@@ -205,17 +202,7 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 call plug#end()
 
-set background=dark
 set termguicolors
-
-" let g:one_allow_italics = 1
-" colorscheme one
-" let g:tokyonight_style = 'storm'
-" let g:tokyonight_enable_italic = 1
-" colorscheme tokyonight
-
-colorscheme nord
-
 set nosplitright
 
 lua <<EOF
