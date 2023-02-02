@@ -1,4 +1,6 @@
 require'nvim-tree'.setup {
+    open_on_setup = true,
+    open_on_setup_file = true,
     reload_on_bufenter = true,
     view = {
         side = "right",
@@ -8,6 +10,20 @@ require'nvim-tree'.setup {
         ignore = false,
     },
     renderer = {
+        highlight_git = true,
+        highlight_modified = "all",
+        highlight_opened_files = "all",
+        special_files = {
+            "node_modules",
+            "Makefile",
+            "README.md",
+            "go.mod",
+            "go.sum",
+            "build.gradle",
+            "settings.gradle",
+            "gradle.properties",
+            "pom.xml",
+        },
         indent_markers = {
             enable = true,
             icons = {
